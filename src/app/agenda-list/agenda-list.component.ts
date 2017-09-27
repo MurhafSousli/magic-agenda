@@ -70,9 +70,9 @@ export class AgendaListComponent {
   downloadFiles(item: AgendaItem) {
 
     item.files.map((file: any) => {
-      console.log('Downloading', file.name, '...');
+      console.log('Downloading', file, '...');
       const element = this.renderer.createElement('a');
-      this.renderer.setAttribute(element, 'href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(file.dataURL));
+      this.renderer.setAttribute(element, 'href', file.dataURL);
       this.renderer.setAttribute(element,'download', file.name);
       this.renderer.setStyle(element, 'display', 'none');
       document.body.appendChild(element);

@@ -135,9 +135,8 @@ export class UploadDialog implements OnInit, OnDestroy {
     }
 
 
-    /** Destroy the dialog after 400ms delay (To get the animation to work) */
+    /** Destroy the dialog after 300ms delay (To get the animation to work) */
     this.showDialog = false;
-    this.componentRef.destroy();
     setTimeout(() => {
       this.componentRef.destroy();
     }, 300);
