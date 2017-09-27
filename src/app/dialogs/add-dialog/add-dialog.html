@@ -1,0 +1,18 @@
+<h4 class="dialog-title">Add child agenda item to {{itemName}}</h4>
+
+<div class="dialog-body">
+  <md-form-field color="accent">
+    <input mdInput placeholder="Name" [(ngModel)]="name">
+  </md-form-field>
+
+  <div class="action-buttons">
+    <button md-mini-fab color="accent" (click)="name ? dialogRef.close(name) : null">
+      <md-icon>done</md-icon>
+    </button>
+    <button md-icon-button color="accent" (click)="dialogRef.close()">
+      <md-icon>close</md-icon>
+    </button>
+  </div>
+
+</div>
+

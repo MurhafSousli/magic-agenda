@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  flex: 1;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 6em;
+  border-radius: 0.5em 0.5em 0 0;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.details-tab-content {
+  padding: 2em;
+  line-height: 2em;
+  text-align: justify;
+}
+
+.remove-button {
+  color: #E53935;
+}
+
+md-list-item {
+  span {
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+  button {
+    opacity: 0.2;
+    transition: opacity ease 200ms;
+  }
+  &:hover {
+    button {
+      opacity: 0.8;
+    }
+  }
+}
+
+.input-container {
+  display: flex;
+  opacity: 0.5;
+}

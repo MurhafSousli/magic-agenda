@@ -1,0 +1,169 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/min/dropzone.min.css');
+@import '~normalize.css';
+@import '~@angular/material/theming';
+@import 'assets/variables';
+
+@include mat-core();
+
+$primary: mat-palette($md-primary, A400);
+$accent: mat-palette($md-secondary);
+$warn: mat-palette($md-variation);
+$theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: mat-color($warn);
+}
+
+input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.mat-raised-button {
+  min-width: 100px;
+  line-height: 34px !important;
+}
+
+//.selected-agenda {
+//  margin-bottom: 1.5em;
+//  background-color: lighten(mat-color($accent, 500), 63%);
+//  height: 60px;
+//}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  button {
+    margin-left: 1em;
+  }
+}
+
+.dialog-title {
+  margin-top: 0.5em;
+  margin-bottom: 2em;
+}
+
+select-dialog {
+  .action-buttons {
+    background-color: mat-color($accent);
+  }
+  .mat-list {
+    padding-top: 0 !important;
+    .mat-list-text {
+      padding-right: 0 !important;
+    }
+  }
+  .mat-dialog-container {
+    margin: auto;
+  }
+}
+
+upload-dialog {
+
+  .action-buttons {
+    background-color: mat-color($accent);
+  }
+
+  .mat-list-item-content {
+    padding-right: 1.5em !important;
+  }
+
+  md-selection-list, md-list.mat-list {
+    padding-top: 0;
+  }
+  md-selection-list .mat-list-option .mat-list-text {
+
+    padding-left: 0 !important;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    .mat-line {
+      margin-left: 1em;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.input-container {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  .input {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.select-dialog .mat-dialog-container {
+  padding: 0 !important;
+}
+
+/** Override drop zone style */
+.dropzone {
+  min-height: unset;
+  padding: 0.5em;
+  margin: 1.5em;
+  border-radius: 0.4em;
+  background-color: lighten(mat-color($accent, 500), 63%) !important;
+  color: mat-color($accent);
+  border: 2px dashed mat-color($accent) !important;
+  .dz-message {
+    margin-top: 1em;
+    margin-bottom: 0.7em;
+  }
+  .dz-preview .dz-progress .dz-upload {
+    background: mat-color($accent) !important;
+  }
+  .dz-preview.dz-image-preview {
+    background-color: transparent;
+  }
+  .dz-preview .dz-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/** Some material shadows */
+
+.shadow-2 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+}
+
+.shadow {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.shadow-3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.shadow-4 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.shadow-5 {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+
+

@@ -1,0 +1,20 @@
+<md-toolbar class="main-toolbar shadow" color="accent">
+  <div class="toolbar-inner">
+    <span class="logo"><img src="assets/logo.svg" alt="logo"></span>
+  </div>
+</md-toolbar>
+<div class="container">
+
+  <agenda-list class="shadow-3" [list]="agenda.data | async"></agenda-list>
+
+</div>
+
+<div class="action-buttons">
+  <button md-fab color="accent" (click)="openUploadDialog()">
+    <md-icon class="md-24" aria-label="Add new agenda">cloud_upload</md-icon>
+  </button>
+</div>
+
+<div class="about">
+  <div class="copyright">Created by Murhaf Sousli</div>
+</div>
