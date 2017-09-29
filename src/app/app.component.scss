@@ -23,13 +23,11 @@
 }
 
 .action-buttons {
-  z-index: 10;
-  position: fixed;
   right: 2em;
   bottom: 2em;
-  button {
-    margin-left: 1em;
-  }
+  width: 56px;
+  position: fixed;
+  z-index: 100;
 }
 
 .container {

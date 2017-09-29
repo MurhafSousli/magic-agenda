@@ -1,70 +1,74 @@
-<md-toolbar color="accent">
-  Business Meeting
-</md-toolbar>
+<div class="agenda-container">
 
-<md-tab-group class="tab-group" color="accent" [selectedIndex]="selectedTabIndex">
-  <md-tab label="Details">
-    <div class="details-tab-content" [innerHtml]="demoText">
-    </div>
-  </md-tab>
-  <md-tab label="Agenda">
-    <div class="agenda-tab-content" *ngIf="selectedTabIndex == 1">
-      <md-list>
-
-        <ng-template ngFor let-item let-i="index" [ngForOf]="list">
-          <md-list-item>
-            <div md-line>
-              <b><span>{{ i + 1 }}</span>
-                {{item.name}}
-              </b>
-            </div>
-
-            <button *ngIf="item.files.length" color="accent" class="download-button" md-icon-button (click)="downloadFiles(item)">
-              <md-icon class="md-24">file_download</md-icon>
-            </button>
-
-            <button color="accent" md-icon-button (click)="addChildItem(item)">
-              <md-icon class="md-24">add</md-icon>
-            </button>
-
-            <button class="remove-button" md-icon-button (click)="removeItem(item)">
-              <md-icon class="md-24">delete</md-icon>
-            </button>
-
-          </md-list-item>
-          <md-divider></md-divider>
-
-          <ng-template ngFor let-child let-j="index" [ngForOf]="item.children">
+  <md-toolbar color="accent">
+    Business Meeting
+  </md-toolbar>
+  
+  <md-tab-group class="tab-group" color="accent" [selectedIndex]="selectedTabIndex">
+    <md-tab label="Details">
+      <div class="details-tab-content" [innerHtml]="demoText">
+      </div>
+    </md-tab>
+    <md-tab label="Agenda">
+      <div class="agenda-tab-content" *ngIf="selectedTabIndex == 1">
+        <md-list>
+  
+          <ng-template ngFor let-item let-i="index" [ngForOf]="list">
             <md-list-item>
               <div md-line>
-                <span>{{ i + 1 }}.{{ j + 1 }}</span>
-                {{child}}
+                <b><span>{{ i + 1 }}</span>
+                  {{item.name}}
+                </b>
               </div>
-
-              <button class="remove-button" md-icon-button (click)="removeItem(child, item)">
+  
+              <button *ngIf="item.files.length" color="accent" class="download-button" md-icon-button (click)="downloadFiles(item)">
+                <md-icon class="md-24">file_download</md-icon>
+              </button>
+  
+              <button color="accent" md-icon-button (click)="addChildItem(item)">
+                <md-icon class="md-24">add</md-icon>
+              </button>
+  
+              <button class="remove-button" md-icon-button (click)="removeItem(item)">
                 <md-icon class="md-24">delete</md-icon>
               </button>
-
+  
             </md-list-item>
             <md-divider></md-divider>
+  
+            <ng-template ngFor let-child let-j="index" [ngForOf]="item.children">
+              <md-list-item>
+                <div md-line>
+                  <span>{{ i + 1 }}.{{ j + 1 }}</span>
+                  {{child}}
+                </div>
+  
+                <button class="remove-button" md-icon-button (click)="removeItem(child, item)">
+                  <md-icon class="md-24">delete</md-icon>
+                </button>
+  
+              </md-list-item>
+              <md-divider></md-divider>
+            </ng-template>
+  
           </ng-template>
-
-        </ng-template>
-
-        <md-list-item>
-          <div class="input-container">
-            <span>{{ list.length + 1 }}</span>
-            <div class="input">
-              <input type="text" placeholder="Enter a new agenda item..." [(ngModel)]="newItemName"
-                     (keyup.enter)="addItem()">
+  
+          <md-list-item>
+            <div class="input-container">
+              <span>{{ list.length + 1 }}</span>
+              <div class="input">
+                <input type="text" placeholder="Enter a new agenda item..." [(ngModel)]="newItemName"
+                       (keyup.enter)="addItem()">
+              </div>
             </div>
-          </div>
-          <button color="accent" md-icon-button (click)="addItem()" [disabled]="!newItemName?.length">
-            <md-icon class="md-24">add</md-icon>
-          </button>
-        </md-list-item>
-      </md-list>
-    </div>
-  </md-tab>
-</md-tab-group>
+            <button color="accent" md-icon-button (click)="addItem()" [disabled]="!newItemName?.length">
+              <md-icon class="md-24">add</md-icon>
+            </button>
+          </md-list-item>
+        </md-list>
+      </div>
+    </md-tab>
+  </md-tab-group>
+  
+</div>
 

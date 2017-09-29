@@ -1,40 +1,52 @@
 :host {
-  display: block;
-  flex: 1;
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: 6em;
-  border-radius: 0.5em 0.5em 0 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 6em;
+}
+
+.agenda-container {
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-radius: 0.5em 0.5em 0 0;
+  overflow: hidden;
+}
+
+.agenda-tab-content {
+  padding-bottom: 3em;
 }
 
 .details-tab-content {
-  padding: 2em;
-  line-height: 2em;
-  text-align: justify;
+    padding: 2em;
+    line-height: 2em;
+    text-align: justify;
 }
 
 .remove-button {
-  color: #E53935;
+    color: #E53935;
 }
 
 md-list-item {
-  span {
-    margin-right: 1em;
-    margin-left: 1em;
-  }
-  button {
-    opacity: 0.2;
-    transition: opacity ease 200ms;
-  }
-  &:hover {
-    button {
-      opacity: 0.8;
+    span {
+        margin-right: 1em;
+        margin-left: 1em;
     }
-  }
+    button {
+        opacity: 0.2;
+        transition: opacity ease 200ms;
+    }
+    &:hover {
+        button {
+            opacity: 0.8;
+        }
+    }
 }
 
 .input-container {
-  display: flex;
-  opacity: 0.5;
+    display: flex;
+    opacity: 0.5;
 }

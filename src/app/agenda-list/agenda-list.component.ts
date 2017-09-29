@@ -28,15 +28,15 @@ export class AgendaListComponent {
   }
 
   /** Add agenda item to the list */
-  addItem() {
-    if(this.newItemName.length) {
+  addItem(element: HTMLElement) {
+    if (this.newItemName.length) {
       this.agenda.add(this.newItemName);
       this.newItemName = '';
     }
   }
 
   /** Add child agenda item */
-  addChildItem(item: AgendaItem) {
+  addChildItem(list: HTMLElement, item: AgendaItem) {
 
     /** Show add dialog */
     const dialogRef = this.dialog.open(AddDialog, {
@@ -49,6 +49,8 @@ export class AgendaListComponent {
         this.agenda.add(newAgendaName, item);
       }
     });
+
+    list.scrollTop = list.scrollHeight;
   }
 
   /** Remove agenda item */
@@ -73,7 +75,7 @@ export class AgendaListComponent {
       console.log('Downloading', file, '...');
       const element = this.renderer.createElement('a');
       this.renderer.setAttribute(element, 'href', file.dataURL);
-      this.renderer.setAttribute(element,'download', file.name);
+      this.renderer.setAttribute(element, 'download', file.name);
       this.renderer.setStyle(element, 'display', 'none');
       document.body.appendChild(element);
       element.click();
