@@ -26,6 +26,7 @@
     "core-js": "^2.4.1",
     "did-you-mean": "0.0.1",
     "didyoumean": "^1.2.1",
+    "file-saver": "^1.3.3",
     "hammerjs": "^2.0.8",
     "ngx-dropzone-wrapper": "^4.6.3",
     "ngx-filter-pipe": "^1.0.0",

@@ -5,6 +5,8 @@ import { RemoveDialog } from '../dialogs/remove-dialog/remove-dialog';
 import { AddDialog } from '../dialogs/add-dialog/add-dialog';
 import { AgendaItem } from '../services/agenda/agenda.model';
 
+import * as FileSaver from 'file-saver';
+
 @Component({
   selector: 'agenda-list',
   templateUrl: './agenda-list.component.html',
@@ -41,16 +43,16 @@ export class AgendaListComponent {
     /** Show add dialog */
     const dialogRef = this.dialog.open(AddDialog, {
       width: '375px',
-      data: item ? item.name : null
+      data: item
     });
 
-    dialogRef.afterClosed().subscribe(newAgendaName => {
-      if (newAgendaName) {
-        this.agenda.add(newAgendaName, item);
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.agenda.add(res.newName, res.parent);
       }
     });
 
-    list.scrollTop = list.scrollHeight;
+    this.renderer.setProperty(list, 'scrollTop', list.scrollHeight);
   }
 
   /** Remove agenda item */
@@ -72,14 +74,11 @@ export class AgendaListComponent {
   downloadFiles(item: AgendaItem) {
 
     item.files.map((file: any) => {
-      console.log('Downloading', file, '...');
-      const element = this.renderer.createElement('a');
-      this.renderer.setAttribute(element, 'href', file.dataURL);
-      this.renderer.setAttribute(element, 'download', file.name);
-      this.renderer.setStyle(element, 'display', 'none');
-      document.body.appendChild(element);
-      element.click();
-      document.body.removeChild(element);
+      try {
+        FileSaver.saveAs(file);
+      } catch (e) {
+        alert(e);
+      }
     });
 
   }

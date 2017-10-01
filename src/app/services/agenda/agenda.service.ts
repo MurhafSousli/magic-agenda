@@ -13,7 +13,6 @@ export class AgendaService {
 
   /** Add agenda item */
   add(name: string, parent?) {
-
     let index = 0;
     if (parent) {
       parent.children.push(name);
@@ -40,7 +39,6 @@ export class AgendaService {
   /** Add files to agenda item */
   addFiles(item: AgendaItem, files) {
     item.files = [...item.files, ...files];
-    console.log(this.arr);
     this.data.next([...this.arr]);
   }
 }

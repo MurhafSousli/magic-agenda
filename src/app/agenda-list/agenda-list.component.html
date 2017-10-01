@@ -21,11 +21,11 @@
                 </b>
               </div>
   
-              <button *ngIf="item.files.length" color="accent" class="download-button" md-icon-button (click)="downloadFiles(item)">
+              <button *ngIf="item.files.length" color="accent" class="download-button" md-icon-button (click)="downloadFiles(item)" [mdTooltip]="'Download files(' + item.files.length + ')'">
                 <md-icon class="md-24">file_download</md-icon>
               </button>
   
-              <button color="accent" md-icon-button (click)="addChildItem(item)">
+              <button color="accent" md-icon-button (click)="addChildItem(list, item)">
                 <md-icon class="md-24">add</md-icon>
               </button>
   

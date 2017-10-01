@@ -1,4 +1,4 @@
-<h4 class="dialog-title">Add child agenda item to {{itemName}}</h4>
+<h4 class="dialog-title">Add child agenda item to {{ item.name }}</h4>
 
 <div class="dialog-body">
   <md-form-field color="accent">
@@ -6,7 +6,7 @@
   </md-form-field>
 
   <div class="action-buttons">
-    <button md-mini-fab color="accent" (click)="name ? dialogRef.close(name) : null">
+    <button md-mini-fab color="accent" (click)="name ? dialogRef.close({ newName: name, parent: item }) : null">
       <md-icon>done</md-icon>
     </button>
     <button md-icon-button color="accent" (click)="dialogRef.close()">
