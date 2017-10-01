@@ -41,7 +41,7 @@ export class AgendaListComponent {
     /** Show add dialog */
     const dialogRef = this.dialog.open(AddDialog, {
       width: '375px',
-      data: item.name
+      data: item ? item.name : null
     });
 
     dialogRef.afterClosed().subscribe(newAgendaName => {
